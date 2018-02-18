@@ -116,7 +116,7 @@
 
                 $ npm install -g forever
             -->
-            <plugin>
+            <!--plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
@@ -138,7 +138,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>start-socket-io-server</id>
+                        <id>start-fake-api-server</id>
                         <phase>pre-integration-test</phase>
                         <goals>
                             <goal>exec</goal>
@@ -166,7 +166,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin-->
 		</plugins>
 	</build>
 </project>

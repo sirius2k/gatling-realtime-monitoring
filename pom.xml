@@ -86,10 +86,14 @@
 						<goals>
 							<goal>testCompile</goal>
 						</goals>
+						<!--
+						    Due to using scalac 2.12, Y option doesn't support anymore.
+						    According to https://github.com/gatling/gatling/issues/3361 Changed Y options to J
+						-->
 						<configuration>
 							<args>
-								<arg>-Ybackend:GenBCode</arg>
-								<arg>-Ydelambdafy:method</arg>
+								<arg>-Jbackend:GenBCode</arg>
+								<arg>-Jdelambdafy:method</arg>
 								<arg>-target:jvm-1.8</arg>
 								<arg>-deprecation</arg>
 								<arg>-feature</arg>

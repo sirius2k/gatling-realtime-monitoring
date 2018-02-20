@@ -120,10 +120,9 @@
 
                 $ npm install -g forever
             -->
-            <!--plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
                 <executions>
                     <execution>
                         <id>npm-install</id>
@@ -170,7 +169,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin-->
+            </plugin>
 		</plugins>
 	</build>
 </project>

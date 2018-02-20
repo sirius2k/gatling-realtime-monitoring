@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-json-server --watch db.json
+forever start node_modules/json-server/bin/index.js --watch db.json

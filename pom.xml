@@ -120,13 +120,12 @@
 
                 $ npm install -g forever
             -->
-            <!--plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
                 <executions>
                     <execution>
-                        <id>npm-install</id>
+                        <id>npm-install-forever</id>
                         <phase>initialize</phase>
                         <goals>
                             <goal>exec</goal>
@@ -136,8 +135,22 @@
                             <workingDirectory>src/test/resources/server</workingDirectory>
                             <arguments>
                                 <argument>install</argument>
+                                <argument>forever</argument>
                                 <argument>-g</argument>
-                                <argument>json-server</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm-install-json-server</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>src/test/resources/server</workingDirectory>
+                            <arguments>
+                                <argument>install</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -170,7 +183,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin-->
+            </plugin>
 		</plugins>
 	</build>
 </project>

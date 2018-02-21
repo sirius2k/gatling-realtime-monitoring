@@ -1,3 +1,5 @@
 .idea/
+.clover/
 target/
 *.iml
+node_modules/

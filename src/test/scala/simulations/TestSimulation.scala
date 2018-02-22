@@ -15,6 +15,7 @@ class TestSimulation extends Simulation {
   val sentryDsn = "your sentry dsn";
   Sentry.init(sentryDsn)
   */
+  Sentry.init()
 
   val httpProtocol = http
     .baseURL("http://127.0.0.1:3000")

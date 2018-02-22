@@ -8,6 +8,13 @@
     <immediateFlush>false</immediateFlush>
 	</appender>
 
+	<!-- Configure the Sentry appender, overriding the logging threshold to the WARN level -->
+	<appender name="Sentry" class="io.sentry.logback.SentryAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+	</appender>
+
 	<!-- Uncomment for logging ALL HTTP request and responses -->
 	<!-- 	<logger name="io.gatling.http.ahc" level="TRACE" /> -->
 	<!--    <logger name="io.gatling.http.response" level="TRACE" /> -->
@@ -17,6 +24,7 @@
 
 	<root level="WARN">
 		<appender-ref ref="CONSOLE" />
+        <appender-ref ref="Sentry" />
 	</root>
 
 </configuration>

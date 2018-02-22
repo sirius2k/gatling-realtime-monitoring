@@ -17,13 +17,12 @@ class TestSimulation extends Simulation {
   */
 
   val httpProtocol = http
-    .baseURL("http://localhost:3000")
+    .baseURL("http://127.0.0.1:3000")
 
   val testScenario = scenario("Test scenario")
       .during(10 second) {
         exec(http("Get Posts")
-          .get("/posts")
-          .check(status.is(200)))
+          .get("/posts"))
           .pause(1)
       }
 

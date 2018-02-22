@@ -2,4 +2,5 @@
 .clover/
 target/
 *.iml
+npm-debug.log
 node_modules/

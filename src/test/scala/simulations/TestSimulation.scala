@@ -20,7 +20,7 @@ class TestSimulation extends Simulation {
     .baseURL("http://127.0.0.1:3000")
 
   val testScenario = scenario("Test scenario")
-      .during(10 second) {
+      .during(10 seconds) {
         exec(http("Get Posts")
           .get("/posts"))
           .pause(1)

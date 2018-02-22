@@ -10,11 +10,6 @@ import scala.concurrent.duration._
 import scala.language.postfixOps
 
 class TestSimulation extends Simulation {
-  // TODO : If you want to use Sentry, please comment out and input your Sentry DSN
-  /*
-  val sentryDsn = "your sentry dsn";
-  Sentry.init(sentryDsn)
-  */
   Sentry.init()
 
   val httpProtocol = http

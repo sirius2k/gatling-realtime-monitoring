@@ -11,11 +11,10 @@ import scala.language.postfixOps
 
 class TestSimulation extends Simulation {
   private val LOGGER = LoggerFactory.getLogger(getClass)
-  private val MARKER = MarkerFactory.getMarker("myMarker")
+  private val MARKER = MarkerFactory.getMarker("TestMarker")
 
   before {
     println("Initialize Sentry before test!!")
-    Sentry.init()
 
     LOGGER.warn(s"before Logger warn test!!")
   }
@@ -33,6 +32,8 @@ class TestSimulation extends Simulation {
 
   val httpProtocol = http
     .baseURL("http://127.0.0.1:3000")
+
+
 
   val simpleScenario = scenario("Test scenario")
       .during(10 seconds) {

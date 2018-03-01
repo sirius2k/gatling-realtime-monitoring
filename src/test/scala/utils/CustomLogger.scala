@@ -3,10 +3,11 @@ package utils
 import com.google.gson.GsonBuilder
 import io.gatling.http.Predef._
 import io.netty.handler.codec.http.HttpHeaders
-import org.slf4j.Logger
+import org.slf4j.{Logger, MarkerFactory}
 
 object CustomLogger {
   val gson = new GsonBuilder().setPrettyPrinting().create()
+  val MARKER = MarkerFactory.getMarker("CustomMarker")
 
   def logHttp(logger: Logger, response: Response, message: String = "") = {
     val title = createTitle(response.request.getMethod, response.request.getUri.getPath, message)
@@ -14,7 +15,7 @@ object CustomLogger {
     val responseLog = createResponseLog(response)
     val fullLog = createFullLog(title, requestLog, responseLog)
 
-    logger.error(fullLog)
+    logger.error(MARKER, fullLog)
   }
 
   def createTitle(method: String, path: String, message: String): String = {
@@ -52,9 +53,9 @@ object CustomLogger {
       val name = iterator.next()
 
       builder.append("\n")
-      builder.append(name)
-      builder.append(" : ")
-      builder.append(headers.get(name))
+        .append(name)
+        .append(" : ")
+        .append(headers.get(name))
     }
 
     builder.toString()

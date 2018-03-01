@@ -14,8 +14,18 @@
 	    Usage : https://docs.sentry.io/clients/java/modules/logback/
 	-->
 	<appender name="Sentry" class="io.sentry.logback.SentryAppender">
-		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+		<!--filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>WARN</level>
+		</filter-->
+		<!-- defaults to type ch.qos.logback.classic.boolex.JaninoEventEvaluator -->
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator>
+				<expression>return level > INFO &amp;&amp; !formattedMessage.contains("crashed with") &amp;&amp; !formattedMessage.contains("failed to execute");</expression>
+				<!-- TODO : uncomment if you want to log with marker -->
+				<!--expression>return marker!=null &amp;&amp; marker.contains("CustomMarker");</expression-->
+			</evaluator>
+			<OnMismatch>DENY</OnMismatch>
+			<OnMatch>NEUTRAL</OnMatch>
 		</filter>
 	</appender>
 
